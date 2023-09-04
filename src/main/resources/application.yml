@@ -1,0 +1,24 @@
+server:
+  port: 8083
+
+spring:
+  profiles:
+    include: kafka, jdbc, swagger
+
+management:
+  health:
+    default:
+      enabled: true
+    db:
+      enabled: true
+  endpoint:
+    health:
+      showDetails: always
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus, info, openapi, swaggerui
+  metrics:
+    export:
+      prometheus:
+        enabled: true

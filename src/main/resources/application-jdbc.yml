@@ -1,0 +1,12 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_SCHEMA}
+    username: ${DATABASE_LOGIN}
+    password: ${DATABASE_PASSWORD}
+    initialization-mode: always
+    pool:
+      name: ORDER-SERVICE-POOL
+      maxSize: 10
+      initialSize: 2
+      maxIdleTime: 30m
+      validationQuery: "SELECT 1"
